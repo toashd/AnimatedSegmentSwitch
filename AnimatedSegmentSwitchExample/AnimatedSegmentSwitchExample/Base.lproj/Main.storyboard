@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BJv-8u-x4Z">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="BNf-3n-0jU">
+            <objects>
+                <navigationController id="BJv-8u-x4Z" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="vVQ-p0-st9">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="WT0-Xj-kZm" kind="relationship" relationship="rootViewController" id="oI1-Us-Zvn"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FkR-Xk-tkA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="156" y="1155"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="1hJ-LS-24i">
+            <objects>
+                <viewController id="WT0-Xj-kZm" customClass="ViewController" customModule="AnimatedSegmentSwitchExample" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="sZB-Wy-9gB"/>
+                        <viewControllerLayoutGuide type="bottom" id="n1W-pb-1Ah"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="tf6-81-dyv">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Em-51-QfS" customClass="AnimatedSegmentSwitch" customModule="AnimatedSegmentSwitchExample" customModuleProvider="target">
+                                <rect key="frame" x="40" y="530" width="520" height="50"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="qpy-gq-sH1"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="thumbColor">
+                                        <color key="value" red="0.0" green="0.60392159223556519" blue="0.80392158031463623" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedLabelColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="unselectedLabelColor">
+                                        <color key="value" red="1" green="0.49803921569999998" blue="0.49019607840000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="segmentValueChanged:" destination="WT0-Xj-kZm" eventType="valueChanged" id="wzn-L6-lQn"/>
+                                </connections>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="n1W-pb-1Ah" firstAttribute="top" secondItem="2Em-51-QfS" secondAttribute="bottom" constant="20" id="5Of-wK-jjH"/>
+                            <constraint firstItem="2Em-51-QfS" firstAttribute="leading" secondItem="tf6-81-dyv" secondAttribute="leadingMargin" constant="20" id="LGi-fQ-tzl"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="2Em-51-QfS" secondAttribute="trailing" constant="20" id="jB7-72-xgJ"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="ZLz-Wj-G3Z"/>
+                    <connections>
+                        <outlet property="segmentControl" destination="2Em-51-QfS" id="7Ua-Kw-M12"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9ah-We-r2H" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="940" y="1155"/>
+        </scene>
+    </scenes>
+</document>
