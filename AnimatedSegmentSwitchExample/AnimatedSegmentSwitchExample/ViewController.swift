@@ -22,6 +22,7 @@ class ViewController: UIViewController {
         
         segmentControl.selectedTitleColor = .customYellowColor()
         segmentControl.titleColor = .whiteColor()
+        segmentControl.font = UIFont(name: "HelveticaNeue-Medium", size: 14.0)
 
         segmentControl.thumbColor = .whiteColor()
         segmentControl.thumbCornerRadius = 1.0
@@ -41,9 +42,9 @@ class ViewController: UIViewController {
         segmentControl.frame = CGRect(x: 50.0, y: 20.0, width: self.view.bounds.width - 100.0, height: 30.0)
         segmentControl.autoresizingMask = [.FlexibleWidth]
         
-        segmentControl.backgroundColor = .customRedColor()
+        segmentControl.backgroundColor = .customBlueColor()
 
-        segmentControl.selectedTitleColor = .customRedColor()
+        segmentControl.selectedTitleColor = .customBlueColor()
         segmentControl.titleColor = .whiteColor()
         segmentControl.font = UIFont(name: "HelveticaNeue-Medium", size: 13.0)
         
@@ -62,7 +63,7 @@ class ViewController: UIViewController {
         segmentControl.frame = CGRect(x: 50.0, y: 70.0, width: self.view.bounds.width - 100.0, height: 35.0)
         segmentControl.autoresizingMask = [.FlexibleWidth]
 
-        segmentControl.backgroundColor = .lyftGrayColor()
+        segmentControl.backgroundColor = .lyftLightGrayColor()
 
         segmentControl.selectedTitleColor = .whiteColor()
         segmentControl.titleColor = .whiteColor()
@@ -169,17 +170,21 @@ extension UIColor {
     }
 
     class func customGreenColor() -> UIColor {
-        return UIColor(red: 48.0/255.0, green: 183.0/255.0, blue: 46.0/255.0, alpha: 1.0)
+        return UIColor(red: 85.0/255.0, green: 238.0/255.0, blue: 151.0/255.0, alpha: 1)
     }
-    
+
+    class func customBlueColor() -> UIColor {
+        return UIColor(red: 85.0/255.0, green: 172.0/255.0, blue: 238.0/255.0, alpha: 1)
+    }
+
     class func lyftPinkColor() -> UIColor {
         return UIColor(red: 234.0/255.0, green: 11.0/255.0, blue: 140.0/255.0, alpha: 1.0)
     }
-    
+
     class func lyftGrayColor() -> UIColor {
         return UIColor(red: 51.0/255.0, green: 61.0/255.0, blue: 71.0/255.0, alpha: 1.0)
     }
-    
+
     class func lyftLightGrayColor() -> UIColor {
         return UIColor(red: 77.0/255.0, green: 94.0/255.0, blue: 107.0/255.0, alpha: 1.0)
     }
