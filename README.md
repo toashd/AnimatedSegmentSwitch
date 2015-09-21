@@ -1,7 +1,7 @@
 # AnimatedSegmentSwitch
 AnimatedSegmentSwitch is a configurable multi-segment switch control written in Swift.
 
-[![](http://img.shields.io/badge/iOS-9.0%2B-blue.svg)]()
+[![](http://img.shields.io/badge/iOS-8.0%2B-blue.svg)]()
 [![](http://img.shields.io/badge/Swift-2.0-blue.svg)]()
 [![CI Status](http://img.shields.io/travis/Tobias Schmid/AnimatedSegmentSwitch.svg?style=flat)](https://travis-ci.org/Tobias Schmid/AnimatedSegmentSwitch)
 [![Version](https://img.shields.io/cocoapods/v/AnimatedSegmentSwitch.svg?style=flat)](http://cocoapods.org/pods/AnimatedSegmentSwitch)
@@ -11,6 +11,9 @@ AnimatedSegmentSwitch is a configurable multi-segment switch control written in 
 
 ![](https://github.com/toashd/AnimatedSegmentSwitch/blob/master/demo.png)
 ![](https://github.com/toashd/AnimatedSegmentSwitch/blob/master/demo.gif)
+
+<img src="https://github.com/toashd/AnimatedSegmentSwitch/blob/master/screenshot.gif" alt="AnimatedSegmentSwitch Screenshot" width="400" height="568" />
+<img src="https://github.com/toashd/AnimatedSegmentSwitch/blob/master/demo.gif" alt="AnimatedSegmentSwitch Demo" width="320" height="568" />
 
 ## Features
 * Up-to-date: Swift 2 (Xcode 7)
