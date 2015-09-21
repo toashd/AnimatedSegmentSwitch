@@ -8,11 +8,7 @@ AnimatedSegmentSwitch is a configurable multi-segment switch control written in 
 [![License](https://img.shields.io/cocoapods/l/AnimatedSegmentSwitch.svg?style=flat)](http://cocoapods.org/pods/AnimatedSegmentSwitch)
 [![Platform](https://img.shields.io/cocoapods/p/AnimatedSegmentSwitch.svg?style=flat)](http://cocoapods.org/pods/AnimatedSegmentSwitch)
 
-
-![](https://github.com/toashd/AnimatedSegmentSwitch/blob/master/demo.png)
-![](https://github.com/toashd/AnimatedSegmentSwitch/blob/master/demo.gif)
-
-<img src="https://github.com/toashd/AnimatedSegmentSwitch/blob/master/screenshot.gif" alt="AnimatedSegmentSwitch Screenshot" width="400" height="568" />
+<img src="https://github.com/toashd/AnimatedSegmentSwitch/blob/master/screenshot.png" alt="AnimatedSegmentSwitch Screenshot" width="400" height="568" />
 <img src="https://github.com/toashd/AnimatedSegmentSwitch/blob/master/demo.gif" alt="AnimatedSegmentSwitch Demo" width="320" height="568" />
 
 ## Features
