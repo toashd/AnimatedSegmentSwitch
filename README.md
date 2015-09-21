@@ -1,17 +1,23 @@
 # AnimatedSegmentSwitch
 AnimatedSegmentSwitch is a configurable multi-segment switch control written in Swift.
 
+[![](http://img.shields.io/badge/iOS-9.0%2B-blue.svg)]()
+[![](http://img.shields.io/badge/Swift-2.0-blue.svg)]()
 [![CI Status](http://img.shields.io/travis/Tobias Schmid/AnimatedSegmentSwitch.svg?style=flat)](https://travis-ci.org/Tobias Schmid/AnimatedSegmentSwitch)
 [![Version](https://img.shields.io/cocoapods/v/AnimatedSegmentSwitch.svg?style=flat)](http://cocoapods.org/pods/AnimatedSegmentSwitch)
 [![License](https://img.shields.io/cocoapods/l/AnimatedSegmentSwitch.svg?style=flat)](http://cocoapods.org/pods/AnimatedSegmentSwitch)
 [![Platform](https://img.shields.io/cocoapods/p/AnimatedSegmentSwitch.svg?style=flat)](http://cocoapods.org/pods/AnimatedSegmentSwitch)
 
+
+![](https://github.com/toashd/AnimatedSegmentSwitch/blob/master/demo.png)
+![](https://github.com/toashd/AnimatedSegmentSwitch/blob/master/demo.gif)
+
 ## Features
-	* Up-to-date: Swift 2 (Xcode 7)
-	* Support for Interface Builder
-  	* Supports multi-segments
-	* Easy to use, lightweight, customizable and configurable
-	* Works as UISegmentedControl and UISwitch drop-in replacement
+* Up-to-date: Swift 2 (Xcode 7)
+* Support for Interface Builder
+* Supports multi-segments
+* Easy to use, lightweight, customizable and configurable
+* Works as UISegmentedControl and UISwitch drop-in replacement
 
 ## Usage
 
@@ -36,10 +42,10 @@ Alternatively the control's API can be easily configured via Interface Builder.
 For more code, open and run the sample project in Xcode.
 
 ## Requirements
-  * Xcode 7
-  * Swift 2.0
-  * iOS 8.0 or higher
-  * ARC
+* Xcode 7
+* Swift 2.0
+* iOS 8.0 or higher
+* ARC
 
 ## Installation
 
