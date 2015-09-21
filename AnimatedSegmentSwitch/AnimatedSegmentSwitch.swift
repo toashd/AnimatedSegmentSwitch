@@ -99,7 +99,7 @@ import UIKit
         setupView()
     }
 
-    func setupView(){
+    private func setupView(){
         backgroundColor = .clearColor()
 
         setupLabels()
@@ -111,7 +111,7 @@ import UIKit
         addGestureRecognizer(panGesture)
     }
 
-    func setupLabels() {
+    private func setupLabels() {
         for label in labels {
             label.removeFromSuperview()
         }
@@ -183,7 +183,9 @@ import UIKit
         displayNewSelectedIndex()
     }
 
-    func displayNewSelectedIndex() {
+    // MARK: - Private - Helpers
+
+    private func displayNewSelectedIndex() {
         for (_, item) in labels.enumerate() {
             item.textColor = titleColor
         }
@@ -200,7 +202,7 @@ import UIKit
             completion: nil)
     }
 
-    func setSelectedColors() {
+    private func setSelectedColors() {
         for item in labels {
             item.textColor = titleColor
         }
@@ -212,13 +214,11 @@ import UIKit
         thumbView.backgroundColor = thumbColor
     }
 
-    func setFont() {
+    private func setFont() {
         for item in labels {
             item.font = font
         }
     }
-
-    // MARK: - Private - Helpers
 
     private func indexAtLocation(location: CGPoint) -> Int? {
         var calculatedIndex: Int?
