@@ -24,15 +24,15 @@ AnimatedSegmentSwitch is a configurable multi-segment switch control written in 
 import AnimatedSegmentSwitch
 
 let segmentedSwitch = AnimatedSegmentSwitch()
-segmentedSwitch.items = ["Swift", "Objective-C", "Other"]
+segmentedSwitch.frame = CGRect(x: 50.0, y: 20.0, width: self.view.bounds.width - 100.0, height: 30.0)
+segmentedSwitch.autoresizingMask = [.FlexibleWidth]
+segmentedSwitch.backgroundColor = UIColor(red: 85.0/255.0, green: 172.0/255.0, blue: 238.0/255.0, alpha: 1)
+segmentedSwitch.selectedTitleColor = UIColor(red: 85.0/255.0, green: 172.0/255.0, blue: 238.0/255.0, alpha: 1)
 segmentedSwitch.titleColor = .whiteColor()
-segmentedSwitch.selectedTitleColor = .blueColor()
 segmentedSwitch.font = UIFont(name: "HelveticaNeue-Medium", size: 13.0)
-segmentedSwitch.backgroundColor = .blueColor()
 segmentedSwitch.thumbColor = .whiteColor()
-segmentedSwitch.thumbCornerRadius = 1.0
-segmentedSwitch.thumbInset = 0.0
-segmentedSwitch.addTarget(self, action: "segmentSwitchValueDidChange:", forControlEvents: .ValueChanged)
+segmentedSwitch.items = ["Week", "Month", "Year"]
+segmentedSwitch.addTarget(self, action: "segmentValueDidChange:", forControlEvents: .ValueChanged)
 
 view.addSubview(segmentedSwitch)
 ```
@@ -69,4 +69,3 @@ Tobias Schmid, toashd@gmail.com, [@toashd](http://twitter.com/toashd), [toashd.c
 ## License
 
 AnimatedSegmentSwitch is available under the MIT license. See the LICENSE file for more info.
-
