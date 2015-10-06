@@ -10,71 +10,71 @@ import UIKit
 
 // MARK: - AnimatedSegmentSwitch
 
-@IBDesignable class AnimatedSegmentSwitch: UIControl {
+@IBDesignable public class AnimatedSegmentSwitch: UIControl {
 
     // MARK: - Public Properties
 
-    var items: [String] = ["Item 1", "Item 2", "Item 3"] {
+    public var items: [String] = ["Item 1", "Item 2", "Item 3"] {
         didSet {
             setupLabels()
         }
     }
 
-    var selectedIndex: Int = 0 {
+    public var selectedIndex: Int = 0 {
         didSet {
             displayNewSelectedIndex()
         }
     }
 
-    var animationDuration: NSTimeInterval = 0.5
-    var animationSpringDamping: CGFloat = 0.6
-    var animationInitialSpringVelocity: CGFloat = 0.8
+    public var animationDuration: NSTimeInterval = 0.5
+    public var animationSpringDamping: CGFloat = 0.6
+    public var animationInitialSpringVelocity: CGFloat = 0.8
 
     // MARK: - IBInspectable Properties
 
-    @IBInspectable var selectedTitleColor: UIColor = UIColor.blackColor() {
+    @IBInspectable public var selectedTitleColor: UIColor = UIColor.blackColor() {
         didSet {
             setSelectedColors()
         }
     }
 
-    @IBInspectable var titleColor: UIColor = UIColor.whiteColor() {
+    @IBInspectable public var titleColor: UIColor = UIColor.whiteColor() {
         didSet {
             setSelectedColors()
         }
     }
 
-    @IBInspectable var font: UIFont! = UIFont.systemFontOfSize(12) {
+    @IBInspectable public var font: UIFont! = UIFont.systemFontOfSize(12) {
         didSet {
             setFont()
         }
     }
 
-    @IBInspectable var borderColor: UIColor = UIColor.whiteColor() {
+    @IBInspectable public var borderColor: UIColor = UIColor.whiteColor() {
         didSet {
             layer.borderColor = borderColor.CGColor
         }
     }
 
-    @IBInspectable var cornerRadius: CGFloat! {
+    @IBInspectable public var cornerRadius: CGFloat! {
         didSet {
             layer.cornerRadius = cornerRadius
         }
     }
 
-    @IBInspectable var thumbColor: UIColor = UIColor.whiteColor() {
+    @IBInspectable public var thumbColor: UIColor = UIColor.whiteColor() {
         didSet {
             setSelectedColors()
         }
     }
 
-    @IBInspectable var thumbCornerRadius: CGFloat! {
+    @IBInspectable public var thumbCornerRadius: CGFloat! {
         didSet {
             thumbView.layer.cornerRadius = thumbCornerRadius
         }
     }
 
-    @IBInspectable var thumbInset: CGFloat = 2.0 {
+    @IBInspectable public var thumbInset: CGFloat = 2.0 {
         didSet {
             setNeedsLayout()
         }
@@ -89,12 +89,12 @@ import UIKit
 
     // MARK: - Lifecycle
 
-    override init(frame: CGRect) {
+    override public init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
     }
 
-    required init?(coder: NSCoder) {
+    required public init?(coder: NSCoder) {
         super.init(coder: coder)
         setupView()
     }
@@ -136,7 +136,7 @@ import UIKit
 
     // MARK: - Touch Events
 
-    override func beginTrackingWithTouch(touch: UITouch, withEvent event: UIEvent?) -> Bool {
+    override public func beginTrackingWithTouch(touch: UITouch, withEvent event: UIEvent?) -> Bool {
         let location = touch.locationInView(self)
         if let index = indexAtLocation(location) {
             selectedIndex = index
@@ -164,7 +164,7 @@ import UIKit
 
     // MARK: - Layout
 
-    override func layoutSubviews() {
+    override public func layoutSubviews() {
         super.layoutSubviews()
 
         layer.cornerRadius = cornerRadius ?? frame.height / 2
@@ -308,7 +308,7 @@ import UIKit
 // MARK: - UIGestureRecognizer Delegate
 extension AnimatedSegmentSwitch: UIGestureRecognizerDelegate {
 
-    override func gestureRecognizerShouldBegin(gestureRecognizer: UIGestureRecognizer) -> Bool {
+    override public func gestureRecognizerShouldBegin(gestureRecognizer: UIGestureRecognizer) -> Bool {
         if gestureRecognizer == panGesture {
             return thumbView.frame.contains(gestureRecognizer.locationInView(self))
         }
