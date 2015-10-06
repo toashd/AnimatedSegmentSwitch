@@ -3,7 +3,7 @@ AnimatedSegmentSwitch is a configurable multi-segment switch control written in 
 
 [![](http://img.shields.io/badge/iOS-8.0%2B-blue.svg)]()
 [![](http://img.shields.io/badge/Swift-2.0-blue.svg)]()
-[![CI Status](http://img.shields.io/travis/Tobias Schmid/AnimatedSegmentSwitch.svg?style=flat)](https://travis-ci.org/Tobias Schmid/AnimatedSegmentSwitch)
+[![CI Status](http://img.shields.io/travis/toashd/AnimatedSegmentSwitch.svg?style=flat)](https://travis-ci.org/toashd/AnimatedSegmentSwitch)
 [![Version](https://img.shields.io/cocoapods/v/AnimatedSegmentSwitch.svg?style=flat)](http://cocoapods.org/pods/AnimatedSegmentSwitch)
 [![License](https://img.shields.io/cocoapods/l/AnimatedSegmentSwitch.svg?style=flat)](http://cocoapods.org/pods/AnimatedSegmentSwitch)
 [![Platform](https://img.shields.io/cocoapods/p/AnimatedSegmentSwitch.svg?style=flat)](http://cocoapods.org/pods/AnimatedSegmentSwitch)
