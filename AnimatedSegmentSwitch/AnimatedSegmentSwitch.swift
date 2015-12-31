@@ -188,7 +188,11 @@ import UIKit
             item.textColor = titleColor
         }
 
-        let label = labels[selectedIndex]
+        if labels.count - 1 < selectedIndex{
+            label = labels[0]
+        }else{
+            label = labels[selectedIndex]
+        }
         label.textColor = selectedTitleColor
 
         UIView.animateWithDuration(animationDuration,
