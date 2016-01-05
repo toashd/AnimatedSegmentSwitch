@@ -187,7 +187,7 @@ import UIKit
         for (_, item) in labels.enumerate() {
             item.textColor = titleColor
         }
-
+            var label
         if labels.count - 1 < selectedIndex{
             label = labels[0]
         }else{
