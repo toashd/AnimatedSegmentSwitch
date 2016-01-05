@@ -187,8 +187,12 @@ import UIKit
         for (_, item) in labels.enumerate() {
             item.textColor = titleColor
         }
-
-        let label = labels[selectedIndex]
+            var label
+        if labels.count - 1 < selectedIndex{
+            label = labels[0]
+        }else{
+            label = labels[selectedIndex]
+        }
         label.textColor = selectedTitleColor
 
         UIView.animateWithDuration(animationDuration,
