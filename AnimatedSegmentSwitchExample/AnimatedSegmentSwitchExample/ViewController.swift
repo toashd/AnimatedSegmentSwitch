@@ -31,7 +31,7 @@ class ViewController: UIViewController {
         segmentControl.addTarget(self, action: "segmentValueDidChange:", forControlEvents: .ValueChanged)
         
         segmentControl.items = ["Swift", "Objective-C"]
-        segmentControl.selectedIndex = 0
+        segmentControl.setSelectedIndex(0, animated: true)
 
         return segmentControl
     }()
@@ -76,7 +76,7 @@ class ViewController: UIViewController {
         segmentControl.addTarget(self, action: "segmentValueDidChange:", forControlEvents: .ValueChanged)
 
         segmentControl.items = ["Line", "Lyft", "Plus"]
-        segmentControl.selectedIndex = 1
+        segmentControl.setSelectedIndex(1, animated: true)
 
         return segmentControl
     }()
@@ -102,7 +102,7 @@ class ViewController: UIViewController {
         segmentControl.addTarget(self, action: "segmentValueDidChange:", forControlEvents: .ValueChanged)
         
         segmentControl.items = ["No tip", "$ 1", "$ 2", "$ 5", "Other"]
-        segmentControl.selectedIndex = 3
+        segmentControl.setSelectedIndex(3, animated: true)
         
         return segmentControl
     }()

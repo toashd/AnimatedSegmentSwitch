@@ -20,12 +20,13 @@ import UIKit
         }
     }
 
-    public var selectedIndex: Int = 0 {
-        didSet {
-            displayNewSelectedIndex()
-        }
+    public private(set) var selectedIndex: Int = 0
+    
+    public func setSelectedIndex(index: Int, animated: Bool) {
+        selectedIndex = index
+        displayNewSelectedIndex(animated: animated)
     }
-
+    
     public var animationDuration: NSTimeInterval = 0.5
     public var animationSpringDamping: CGFloat = 0.6
     public var animationInitialSpringVelocity: CGFloat = 0.8
@@ -139,7 +140,7 @@ import UIKit
     override public func beginTrackingWithTouch(touch: UITouch, withEvent event: UIEvent?) -> Bool {
         let location = touch.locationInView(self)
         if let index = indexAtLocation(location) {
-            selectedIndex = index
+            setSelectedIndex(index, animated: true)
             sendActionsForControlEvents(.ValueChanged)
         }
         return false
@@ -155,7 +156,8 @@ import UIKit
             thumbView.frame = frame
         } else if gesture.state == .Ended || gesture.state == .Failed || gesture.state == .Cancelled {
             let location = gesture.locationInView(self)
-            selectedIndex = nearestIndexAtLocation(location)
+            let index = nearestIndexAtLocation(location)
+            setSelectedIndex(index, animated: true)
             sendActionsForControlEvents(.ValueChanged)
         }
     }
@@ -178,26 +180,30 @@ import UIKit
         thumbView.backgroundColor = thumbColor
         thumbView.layer.cornerRadius = (thumbCornerRadius ?? thumbView.frame.height / 2) - thumbInset
 
-        displayNewSelectedIndex()
+        displayNewSelectedIndex(animated: false)
     }
 
     // MARK: - Private - Helpers
 
-    private func displayNewSelectedIndex() {
+    private func displayNewSelectedIndex(animated animated: Bool) {
         for (_, item) in labels.enumerate() {
             item.textColor = titleColor
         }
 
         let label = labels[selectedIndex]
         label.textColor = selectedTitleColor
-
-        UIView.animateWithDuration(animationDuration,
-            delay: 0.0,
-            usingSpringWithDamping: animationSpringDamping,
-            initialSpringVelocity: animationInitialSpringVelocity,
-            options: [],
-            animations: { self.thumbView.frame = label.frame },
-            completion: nil)
+        
+        if animated {
+            UIView.animateWithDuration(animationDuration,
+                delay: 0.0,
+                usingSpringWithDamping: animationSpringDamping,
+                initialSpringVelocity: animationInitialSpringVelocity,
+                options: [],
+                animations: { self.thumbView.frame = label.frame },
+                completion: nil)
+        } else {
+            self.thumbView.frame = label.frame
+        }
     }
 
     private func setSelectedColors() {
