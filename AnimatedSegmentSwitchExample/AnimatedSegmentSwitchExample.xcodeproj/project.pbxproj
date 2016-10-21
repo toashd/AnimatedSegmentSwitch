@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4502741E1BAD4CEF001751BD /* AnimatedSegmentSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4502741D1BAD4CEF001751BD /* AnimatedSegmentSwitch.swift */; settings = {ASSET_TAGS = (); }; };
+		4502741E1BAD4CEF001751BD /* AnimatedSegmentSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4502741D1BAD4CEF001751BD /* AnimatedSegmentSwitch.swift */; };
 		45DD0C9E1BAC454E00FAC828 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DD0C9D1BAC454E00FAC828 /* AppDelegate.swift */; };
 		45DD0CA01BAC454E00FAC828 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DD0C9F1BAC454E00FAC828 /* ViewController.swift */; };
 		45DD0CA31BAC454E00FAC828 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45DD0CA11BAC454E00FAC828 /* Main.storyboard */; };
@@ -107,6 +107,7 @@
 				TargetAttributes = {
 					45DD0C991BAC454E00FAC828 = {
 						CreatedOnToolsVersion = 7.0;
+						LastSwiftMigration = 0800;
 					};
 				};
 			};
@@ -265,6 +266,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.toashd.AnimatedSegmentSwitch.AnimatedSegmentSwitchExample;
 				PRODUCT_NAME = AnimatedSegmentSwitchExample;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -276,6 +278,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.toashd.AnimatedSegmentSwitch.AnimatedSegmentSwitchExample;
 				PRODUCT_NAME = AnimatedSegmentSwitchExample;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
