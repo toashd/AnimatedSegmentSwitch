@@ -191,7 +191,7 @@ import UIKit
             thumbViewMask.frame = frame
         } else if gesture.state == .ended || gesture.state == .failed || gesture.state == .cancelled {
             let location = gesture.location(in: self)
-            if let index = indexAtLocation(location) {
+            if let index = nearestIndexAtLocation(location: location) {
                 selectedIndex = index
                 sendActions(for: .valueChanged)
             }
@@ -260,6 +260,15 @@ import UIKit
             }
         }
         return calculatedIndex
+    }
+
+    fileprivate func nearestIndexAtLocation(location: CGPoint) -> Int? {
+        var calculatedDistances : [CGFloat] = []
+        for (index, item) in labels.enumerated() {
+            let distance = sqrt(pow(location.x - item.center.x, 2) + pow(location.y - item.center.y, 2))
+            calculatedDistances.insert(distance, at: index)
+        }
+        return calculatedDistances.index(of: calculatedDistances.min()!)!
     }
 
     fileprivate func addIndividualItemConstraints(_ items: [UIView], mainView: UIView, padding: CGFloat) {
