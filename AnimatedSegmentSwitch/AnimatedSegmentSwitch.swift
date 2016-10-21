@@ -20,13 +20,12 @@ import UIKit
         }
     }
 
-    public private(set) var selectedIndex: Int = 0
-    
-    public func setSelectedIndex(index: Int, animated: Bool) {
-        selectedIndex = index
-        displayNewSelectedIndex(animated: animated)
+    public var selectedIndex: Int = 0 {
+        didSet {
+            displayNewSelectedIndex()
+        }
     }
-    
+
     public var animationDuration: NSTimeInterval = 0.5
     public var animationSpringDamping: CGFloat = 0.6
     public var animationInitialSpringVelocity: CGFloat = 0.8
@@ -84,7 +83,11 @@ import UIKit
     // MARK: - Private Properties
 
     private var labels = [UILabel]()
+    private var selectedlabels = [UILabel]()
+    private var titleLabelsContentView = UIView()
+    private var selectedTitleLabelsContentView = UIView()
     private var thumbView = UIView()
+    private var thumbViewMask = UIView()
     private var selectedThumbViewFrame: CGRect?
     private var panGesture: UIPanGestureRecognizer!
 
@@ -103,9 +106,24 @@ import UIKit
     private func setupView(){
         backgroundColor = .clearColor()
 
+        addSubview(thumbView)
+
+        titleLabelsContentView.frame = bounds
+        addSubview(titleLabelsContentView)
+
+
+        selectedTitleLabelsContentView.frame = bounds
+        addSubview(selectedTitleLabelsContentView)
+
+        addSubview(thumbViewMask)
+
+        selectedTitleLabelsContentView.layer.mask = thumbViewMask.layer
+
         setupLabels()
 
-        insertSubview(thumbView, atIndex: 0)
+        titleLabelsContentView.userInteractionEnabled = false
+        selectedTitleLabelsContentView.userInteractionEnabled = false
+        thumbViewMask.userInteractionEnabled = false
 
         panGesture = UIPanGestureRecognizer(target: self, action: "pan:")
         panGesture.delegate = self
@@ -117,7 +135,12 @@ import UIKit
             label.removeFromSuperview()
         }
 
+        for label in selectedlabels {
+            label.removeFromSuperview()
+        }
+
         labels.removeAll(keepCapacity: true)
+        selectedlabels.removeAll(keepCapacity: true)
 
         for index in 1...items.count {
             let label = UILabel(frame: CGRectMake(0, 0, 70, 40))
@@ -125,14 +148,25 @@ import UIKit
             label.backgroundColor = .clearColor()
             label.textAlignment = .Center
             label.font = font
-            label.textColor = index == 1 ? selectedTitleColor : titleColor
+            label.textColor = titleColor
             label.translatesAutoresizingMaskIntoConstraints = false
 
-            self.addSubview(label)
+            let selectedLabel = UILabel(frame: label.frame)
+            selectedLabel.text = label.text
+            selectedLabel.backgroundColor = .clearColor()
+            selectedLabel.textAlignment = .Center
+            selectedLabel.font = font
+            selectedLabel.textColor = selectedTitleColor
+            selectedLabel.translatesAutoresizingMaskIntoConstraints = false
+
+            titleLabelsContentView.addSubview(label)
+            selectedTitleLabelsContentView.addSubview(selectedLabel)
             labels.append(label)
+            selectedlabels.append(selectedLabel)
         }
 
         addIndividualItemConstraints(labels, mainView: self, padding: thumbInset)
+        addIndividualItemConstraints(selectedlabels, mainView: self, padding: thumbInset)
     }
 
     // MARK: - Touch Events
@@ -140,7 +174,7 @@ import UIKit
     override public func beginTrackingWithTouch(touch: UITouch, withEvent event: UIEvent?) -> Bool {
         let location = touch.locationInView(self)
         if let index = indexAtLocation(location) {
-            setSelectedIndex(index, animated: true)
+            selectedIndex = index
             sendActionsForControlEvents(.ValueChanged)
         }
         return false
@@ -152,13 +186,15 @@ import UIKit
         } else if gesture.state == .Changed {
             var frame = selectedThumbViewFrame!
             frame.origin.x += gesture.translationInView(self).x
-            frame.origin.x = min(frame.origin.x, bounds.width - frame.width)
+            frame.origin.x = max(min(frame.origin.x, bounds.width - frame.width - thumbInset), thumbInset)
             thumbView.frame = frame
+            thumbViewMask.frame = frame
         } else if gesture.state == .Ended || gesture.state == .Failed || gesture.state == .Cancelled {
             let location = gesture.locationInView(self)
-            let index = nearestIndexAtLocation(location)
-            setSelectedIndex(index, animated: true)
-            sendActionsForControlEvents(.ValueChanged)
+            if let index = indexAtLocation(location) {
+                selectedIndex = index
+                sendActionsForControlEvents(.ValueChanged)
+            }
         }
     }
 
@@ -174,47 +210,38 @@ import UIKit
 
         var selectFrame = self.bounds
         let newWidth = CGRectGetWidth(selectFrame) / CGFloat(items.count)
-        selectFrame.size.width = newWidth
+        selectFrame.size.width = newWidth - thumbInset * 2
+        selectFrame.size.height = selectFrame.height - thumbInset * 2
+        selectFrame.origin.x = thumbInset
+        selectFrame.origin.y = thumbInset
 
         thumbView.frame = selectFrame
         thumbView.backgroundColor = thumbColor
-        thumbView.layer.cornerRadius = (thumbCornerRadius ?? thumbView.frame.height / 2) - thumbInset
+        thumbView.layer.cornerRadius = (thumbCornerRadius ?? thumbView.frame.height / 2)
 
-        displayNewSelectedIndex(animated: false)
+        thumbViewMask.frame = thumbView.frame
+        thumbViewMask.backgroundColor = UIColor.whiteColor()
+        thumbViewMask.layer.cornerRadius = thumbView.layer.cornerRadius
     }
 
     // MARK: - Private - Helpers
 
-    private func displayNewSelectedIndex(animated animated: Bool) {
-        for (_, item) in labels.enumerate() {
-            item.textColor = titleColor
-        }
-
+    private func displayNewSelectedIndex() {
         let label = labels[selectedIndex]
-        label.textColor = selectedTitleColor
-        
-        if animated {
-            UIView.animateWithDuration(animationDuration,
-                delay: 0.0,
-                usingSpringWithDamping: animationSpringDamping,
-                initialSpringVelocity: animationInitialSpringVelocity,
-                options: [],
-                animations: { self.thumbView.frame = label.frame },
-                completion: nil)
-        } else {
-            self.thumbView.frame = label.frame
-        }
+
+        UIView.animateWithDuration(animationDuration,
+            delay: 0.0,
+            usingSpringWithDamping: animationSpringDamping,
+            initialSpringVelocity: animationInitialSpringVelocity,
+            options: [],
+            animations: {
+                self.thumbView.frame = label.frame
+                self.thumbViewMask.frame = label.frame
+            },
+            completion: nil)
     }
 
     private func setSelectedColors() {
-        for item in labels {
-            item.textColor = titleColor
-        }
-
-        if labels.count > 0 {
-            labels[selectedIndex].textColor = selectedTitleColor
-        }
-
         thumbView.backgroundColor = thumbColor
     }
 
@@ -234,16 +261,7 @@ import UIKit
         }
         return calculatedIndex
     }
-    
-    private func nearestIndexAtLocation(location: CGPoint) -> Int {
-        var calculatedDistances : [CGFloat] = []
-        for (index, item) in labels.enumerate() {
-            let distance = sqrt(pow(location.x - item.center.x, 2) + pow(location.y - item.center.y, 2))
-            calculatedDistances.insert(distance, atIndex: index)
-        }
-        return calculatedDistances.indexOf(calculatedDistances.minElement()!)!
-    }
-    
+
     private func addIndividualItemConstraints(items: [UIView], mainView: UIView, padding: CGFloat) {
         for (index, button) in items.enumerate() {
             let topConstraint = NSLayoutConstraint(item: button,
