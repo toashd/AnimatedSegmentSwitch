@@ -14,21 +14,21 @@ import UIKit
 
     // MARK: - Public Properties
 
-    open var items: [String] = ["Item 1", "Item 2", "Item 3"] {
+    @objc open var items: [String] = ["Item 1", "Item 2", "Item 3"] {
         didSet {
             setupLabels()
         }
     }
 
-    open var selectedIndex: Int = 0 {
+    @objc open var selectedIndex: Int = 0 {
         didSet {
             displayNewSelectedIndex()
         }
     }
 
-    open var animationDuration: TimeInterval = 0.5
-    open var animationSpringDamping: CGFloat = 0.6
-    open var animationInitialSpringVelocity: CGFloat = 0.8
+    @objc open var animationDuration: TimeInterval = 0.5
+    @objc open var animationSpringDamping: CGFloat = 0.6
+    @objc open var animationInitialSpringVelocity: CGFloat = 0.8
 
     // MARK: - IBInspectable Properties
 
@@ -56,7 +56,7 @@ import UIKit
         }
     }
 
-    @IBInspectable open var cornerRadius: CGFloat! {
+    @IBInspectable open var cornerRadius: CGFloat = 0.0 {
         didSet {
             layer.cornerRadius = cornerRadius
         }
@@ -68,7 +68,7 @@ import UIKit
         }
     }
 
-    @IBInspectable open var thumbCornerRadius: CGFloat! {
+    @IBInspectable open var thumbCornerRadius: CGFloat = 0.0 {
         didSet {
             thumbView.layer.cornerRadius = thumbCornerRadius
         }
@@ -180,7 +180,7 @@ import UIKit
         return false
     }
 
-    func pan(_ gesture: UIPanGestureRecognizer!) {
+    @objc func pan(_ gesture: UIPanGestureRecognizer!) {
         if gesture.state == .began {
             selectedThumbViewFrame = thumbView.frame
         } else if gesture.state == .changed {
@@ -203,7 +203,7 @@ import UIKit
     override open func layoutSubviews() {
         super.layoutSubviews()
 
-        layer.cornerRadius = cornerRadius ?? frame.height / 2
+		layer.cornerRadius = (cornerRadius == 0.0) ? frame.height / 2 : cornerRadius
         layer.borderColor = UIColor(white: 1.0, alpha: 0.0).cgColor
         layer.borderWidth = 1
         layer.masksToBounds = true
@@ -217,7 +217,7 @@ import UIKit
 
         thumbView.frame = selectFrame
         thumbView.backgroundColor = thumbColor
-        thumbView.layer.cornerRadius = (thumbCornerRadius ?? thumbView.frame.height / 2)
+		thumbView.layer.cornerRadius = (thumbCornerRadius == 0.0) ? thumbView.frame.height / 2 : thumbCornerRadius
 
         thumbViewMask.frame = thumbView.frame
         thumbViewMask.backgroundColor = UIColor.white

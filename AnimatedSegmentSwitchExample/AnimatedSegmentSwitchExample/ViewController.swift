@@ -137,7 +137,7 @@ class ViewController: UIViewController {
         }
     }
 
-    func segmentValueDidChange(_ sender: AnimatedSegmentSwitch) {
+    @objc func segmentValueDidChange(_ sender: AnimatedSegmentSwitch) {
         print("valueChanged: \(sender.selectedIndex)")
     }
 
@@ -157,35 +157,35 @@ class ViewController: UIViewController {
 
 extension UIColor {
 
-    class func customYellowColor() -> UIColor {
+    @objc class func customYellowColor() -> UIColor {
         return UIColor(red: 229.0/255.0, green: 163.0/255.0, blue: 48.0/255.0, alpha: 1.0)
     }
 
-    class func customLightYellowColor() -> UIColor {
+    @objc class func customLightYellowColor() -> UIColor {
         return UIColor(red: 252.0/255.0, green: 182.0/255.0, blue: 54.0/255.0, alpha: 1.0)
     }
 
-    class func customRedColor() -> UIColor {
+    @objc class func customRedColor() -> UIColor {
         return UIColor(red: 239.0/255.0, green: 95.0/255.0, blue: 49.0/255.0, alpha: 1.0)
     }
 
-    class func customGreenColor() -> UIColor {
+    @objc class func customGreenColor() -> UIColor {
         return UIColor(red: 85.0/255.0, green: 238.0/255.0, blue: 151.0/255.0, alpha: 1)
     }
 
-    class func customBlueColor() -> UIColor {
+    @objc class func customBlueColor() -> UIColor {
         return UIColor(red: 85.0/255.0, green: 172.0/255.0, blue: 238.0/255.0, alpha: 1)
     }
 
-    class func lyftPinkColor() -> UIColor {
+    @objc class func lyftPinkColor() -> UIColor {
         return UIColor(red: 234.0/255.0, green: 11.0/255.0, blue: 140.0/255.0, alpha: 1.0)
     }
 
-    class func lyftGrayColor() -> UIColor {
+    @objc class func lyftGrayColor() -> UIColor {
         return UIColor(red: 51.0/255.0, green: 61.0/255.0, blue: 71.0/255.0, alpha: 1.0)
     }
 
-    class func lyftLightGrayColor() -> UIColor {
+    @objc class func lyftLightGrayColor() -> UIColor {
         return UIColor(red: 77.0/255.0, green: 94.0/255.0, blue: 107.0/255.0, alpha: 1.0)
     }
 }
