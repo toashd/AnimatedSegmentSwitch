@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "AnimatedSegmentSwitch"
-  s.version          = "0.1.0"
+  s.version          = "0.2.0"
 
   s.summary          = "AnimatedSegmentSwitch is a configurable multi-segment switch control written in Swift."
   s.description = <<-DESC
