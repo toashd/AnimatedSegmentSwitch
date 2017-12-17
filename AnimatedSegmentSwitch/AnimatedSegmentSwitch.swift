@@ -249,6 +249,9 @@ import UIKit
         for item in labels {
             item.font = font
         }
+        for item in selectedlabels {
+            item.font = font
+        }
     }
 
     fileprivate func indexAtLocation(_ location: CGPoint) -> Int? {
