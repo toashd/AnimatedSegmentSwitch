@@ -12,7 +12,7 @@ AnimatedSegmentSwitch is a configurable multi-segment switch control written in 
 <img src="https://github.com/toashd/AnimatedSegmentSwitch/blob/master/demo.gif" alt="AnimatedSegmentSwitch Demo" width="320" height="568" />
 
 ## Features
-* Up-to-date: Swift 3.0 (Xcode 8)
+* Up-to-date: Swift 4.2 (Xcode 10)
 * Support for Interface Builder
 * Supports multi-segments
 * Easy to use, lightweight, customizable and configurable

@@ -1,11 +1,11 @@
 Pod::Spec.new do |s|
   s.name             = "AnimatedSegmentSwitch"
-  s.version          = "0.2.0"
+  s.version          = "0.2.1"
 
   s.summary          = "AnimatedSegmentSwitch is a configurable multi-segment switch control written in Swift."
   s.description = <<-DESC
     Features
-      * Up-to-date: Swift 2 (Xcode 7)
+      * Up-to-date: Swift 4.2 (Xcode 10)
       * Support for Interface Designer
       * Supports multi-segments
       * Easy to use, lightweight, customizable and configurable
