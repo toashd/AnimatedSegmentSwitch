@@ -243,6 +243,9 @@ import UIKit
 
     fileprivate func setSelectedColors() {
         thumbView.backgroundColor = thumbColor
+        for label in self.selectedlabels {
+            label.textColor = selectedTitleColor
+        }
     }
 
     fileprivate func setFont() {
