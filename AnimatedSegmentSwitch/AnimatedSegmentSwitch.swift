@@ -238,7 +238,10 @@ import UIKit
                 self.thumbView.frame = label.frame
                 self.thumbViewMask.frame = label.frame
             },
-            completion: nil)
+            completion: { (completed) in
+                self.thumbView.frame = label.frame
+                self.thumbViewMask.frame = label.frame
+        })
     }
 
     fileprivate func setSelectedColors() {
