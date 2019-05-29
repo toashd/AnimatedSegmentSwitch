@@ -227,7 +227,7 @@ import UIKit
     // MARK: - Private - Helpers
 
     fileprivate func displayNewSelectedIndex() {
-        let label = labels[selectedIndex]
+        let label = self.labels[self.selectedIndex]
 
         UIView.animate(withDuration: animationDuration,
             delay: 0.0,
@@ -245,14 +245,14 @@ import UIKit
     }
 
     fileprivate func setSelectedColors() {
-        thumbView.backgroundColor = thumbColor
+        thumbView.backgroundColor = self.thumbColor
         for label in self.selectedlabels {
             label.textColor = selectedTitleColor
         }
     }
 
     fileprivate func setFont() {
-        for item in labels {
+        for item in self.labels {
             item.font = font
         }
         for item in selectedlabels {
@@ -277,7 +277,7 @@ import UIKit
             let distance = sqrt(pow(location.x - item.center.x, 2) + pow(location.y - item.center.y, 2))
             calculatedDistances.insert(distance, at: index)
         }
-        return calculatedDistances.index(of: calculatedDistances.min()!)!
+        return calculatedDistances.firstIndex(of: calculatedDistances.min()!)!
     }
 
     fileprivate func addIndividualItemConstraints(_ items: [UIView], mainView: UIView, padding: CGFloat) {

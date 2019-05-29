@@ -107,7 +107,8 @@
 				TargetAttributes = {
 					45DD0C991BAC454E00FAC828 = {
 						CreatedOnToolsVersion = 7.0;
-						LastSwiftMigration = 0900;
+						DevelopmentTeam = 2VJY2AJVXJ;
+						LastSwiftMigration = 1020;
 					};
 				};
 			};
@@ -116,6 +117,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -281,11 +283,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 2VJY2AJVXJ;
 				INFOPLIST_FILE = AnimatedSegmentSwitchExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.toashd.AnimatedSegmentSwitch.AnimatedSegmentSwitchExample;
 				PRODUCT_NAME = AnimatedSegmentSwitchExample;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -293,11 +296,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 2VJY2AJVXJ;
 				INFOPLIST_FILE = AnimatedSegmentSwitchExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.toashd.AnimatedSegmentSwitch.AnimatedSegmentSwitchExample;
 				PRODUCT_NAME = AnimatedSegmentSwitchExample;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
