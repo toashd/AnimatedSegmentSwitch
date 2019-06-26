@@ -239,8 +239,9 @@ import UIKit
                 self.thumbViewMask.frame = label.frame
             },
             completion: { (completed) in
-                self.thumbView.frame = label.frame
-                self.thumbViewMask.frame = label.frame
+                // was causing stuttering when chaning values fast
+                // self.thumbView.frame = label.frame
+                // self.thumbViewMask.frame = label.frame
         })
     }
 
