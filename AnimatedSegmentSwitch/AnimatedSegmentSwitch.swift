@@ -233,7 +233,7 @@ import UIKit
             delay: 0.0,
             usingSpringWithDamping: animationSpringDamping,
             initialSpringVelocity: animationInitialSpringVelocity,
-            options: [],
+            options: [.beginFromCurrentState],
             animations: {
                 self.thumbView.frame = label.frame
                 self.thumbViewMask.frame = label.frame
