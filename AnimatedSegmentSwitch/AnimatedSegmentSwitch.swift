@@ -227,6 +227,7 @@ import UIKit
     // MARK: - Private - Helpers
 
     fileprivate func displayNewSelectedIndex() {
+        self.layoutIfNeeded()
         let label = self.labels[self.selectedIndex]
 
         UIView.animate(withDuration: animationDuration,
